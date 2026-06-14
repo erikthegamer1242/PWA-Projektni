@@ -1,5 +1,6 @@
 <?php
 
-print '</body>
+print '</main>
+</body>
 </html>';
 ?>

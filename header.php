@@ -1,4 +1,5 @@
 <?php
+require_once("env.php");
 echo '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@ echo '<!DOCTYPE html>
             <a href="sport.php">Sport</a>
             <a href="admin.php">Administracija</a>
         </nav>
-    </header>';
+    </header>
+    <main>';
 
 ?>
