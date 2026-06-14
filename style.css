@@ -44,16 +44,19 @@ main {
     border: none;
 }
 
+.title h2 {
+    color: white;
+    text-transform: uppercase;
+    width: max-content;
+    padding: 10px 20px;
+}
+
 .music .title hr {
     background-color: magenta;
 }
 
 .music .title h2 {
     background-color: magenta;
-    color: white;
-    text-transform: uppercase;
-    width: max-content;
-    padding: 10px 20px;
 }
 
 .sport .title {
@@ -68,10 +71,11 @@ main {
 
 .sport .title h2 {
     background-color: green;
-    color: white;
-    text-transform: uppercase;
-    width: max-content;
-    padding: 10px 20px;
+}
+
+.article {
+    box-sizing: border-box;
+    max-width: 385px;
 }
 
 .article img {
@@ -83,7 +87,11 @@ main {
     display: flex;
     gap: 20px;
     margin-top: 20px;
-    
+}
+
+.content-page {
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .content a {
@@ -96,4 +104,49 @@ main {
 .content p {
     text-transform: uppercase;
     color: grey;
+}
+
+.news-form {
+    max-width: 400px;
+    background-color: #f4f4f4;
+    padding: 10px 20px 40px 20px;
+    margin: 20px auto;
+}
+
+.news-form label {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: -10px;
+}
+
+.news-form input[type="text"], .news-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.news-form .buttons {
+    float: right;
+}
+
+.news-form .submit {
+    background-color: yellow;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.news-form .reset {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
 }

@@ -4,4 +4,11 @@
     $username_db = "root";
     $password_db = "1234";
     $dbname = "projektni";
+
+    $allowedTypes = [
+        "image/jpeg" => "jpg",
+        "image/png" => "png",
+    ];
+
+    $uploaddir = "uploads/";
 ?>

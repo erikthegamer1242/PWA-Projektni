@@ -10,7 +10,7 @@
             try {
                 $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username_db, $password_db);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "SELECT * FROM news INNER JOIN category ON news.id_category = category.id WHERE category.name = 'Muzika'";
+                $sql = "SELECT * FROM news INNER JOIN category ON news.id_category = category.id WHERE category.name = 'Muzika' AND news.archive = 0 ORDER BY news.date DESC LIMIT 3";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +35,7 @@
             try {
                 $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username_db, $password_db);
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $sql = "SELECT * FROM news INNER JOIN category ON news.id_category = category.id WHERE category.name = 'Sport'";
+                $sql = "SELECT * FROM news INNER JOIN category ON news.id_category = category.id WHERE category.name = 'Sport' AND news.archive = 0 ORDER BY news.date DESC LIMIT 3";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -51,5 +51,5 @@
             }
             print '</div>
         </section>';
-    include 'footer.php';
+    require_once ('footer.php');
 ?>
