@@ -2,6 +2,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .header a {
@@ -30,6 +33,7 @@ main {
     margin: 20px auto;
     padding: 20px;
     max-width: 1200px;
+    flex: 1;
 }
 
 .music .title {
@@ -198,4 +202,12 @@ form .reset {
     color: grey;
     font-weight: bold;
     margin-top: 10px;
+}
+
+.footer {
+    height: 50px;
+    background-color: yellow;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
 }
