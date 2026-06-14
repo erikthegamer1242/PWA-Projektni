@@ -7,6 +7,11 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['level'])) {
     exit();
 }
 
+if ($_SESSION['level'] <= 1) {
+    echo "Nemate pristup ovoj stranici!";
+    exit();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['id']) && isset($_GET['w']) && $_GET['w'] === 'e') {
         $id = $_GET['id'];

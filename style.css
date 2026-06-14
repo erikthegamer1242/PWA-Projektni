@@ -175,3 +175,27 @@ form .reset {
     display: inline-block;
     margin-top: 10px;
 }
+
+.news-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.news-content img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+}
+
+.news-content h2 {
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 5px;
+}
+
+.news-content .date {
+    color: grey;
+    font-weight: bold;
+    margin-top: 10px;
+}
