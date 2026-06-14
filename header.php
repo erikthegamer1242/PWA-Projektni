@@ -13,10 +13,10 @@ echo '<!DOCTYPE html>
         <img src="/img/logo.webp" alt="Sopitas Logo" class="logo">
         <nav>
             <a href="index.php">Početna</a>
-            <a href="news.php?category=Muzika">Muzika</a>
-            <a href="news.php?category=Sport">Sport</a>
+            <a href="kategorija.php?category=Muzika">Muzika</a>
+            <a href="kategorija.php?category=Sport">Sport</a>
             <a href="unos.php">Unos</a>
-            <a href="admin.php">Administracija</a>
+            <a href="administrator.php">Administracija</a>
         </nav>
     </header>
     <main>';

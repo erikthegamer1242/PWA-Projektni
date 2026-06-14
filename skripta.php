@@ -1,9 +1,6 @@
 <?php
-
+require_once("header.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once("env.php");
-
-
     $title = $_POST['title'];
     $content = $_POST['content'];
     $id_category = $_POST['category'];
@@ -41,8 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare($sql);
         if ($stmt->execute([$title, $content, $uploadfile, date('Y-m-d'), $archive, $id_category])) {
             echo "Novost je uspješno unesena.";
-            echo "<br><a href='index.php'>Povratak na početnu stranicu</a>";
-
         } else {
             echo "Došlo je do greške prilikom unosa novosti.";
         }
@@ -52,3 +47,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Invalid req.";
 }
+
+require_once('footer.php');
