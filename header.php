@@ -10,7 +10,9 @@ echo '<!DOCTYPE html>
 </head>
 <body>
     <header class="header">
-        <img src="/img/logo.webp" alt="Sopitas Logo" class="logo">
+        <a class="logo-link" href="index.php">
+            <img src="/img/logo.webp" alt="Sopitas Logo" class="logo">
+        </a>
         <nav>
             <a href="index.php">Početna</a>
             <a href="kategorija.php?category=Muzika">Muzika</a>

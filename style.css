@@ -15,10 +15,10 @@ body {
     font-weight: bold;
 }
 
-.header img {
-    position: absolute;
-    left: 10px;
-    margin: 0;
+.header .logo-link {
+    align-items: flex-start;
+    justify-self: flex-start;
+    align-self: flex-start;
 }
 
 .header {
@@ -145,6 +145,7 @@ form .submit {
     padding: 5px 10px;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 form .reset {
