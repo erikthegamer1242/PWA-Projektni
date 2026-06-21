@@ -2,6 +2,7 @@
 require_once("header.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
+    $summary = $_POST['summary'];
     $content = $_POST['content'];
     $id_category = $_POST['category'];
     $archive = isset($_POST['archive']) ? 1 : 0;
@@ -34,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username_db, $password_db);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = "INSERT INTO news (title, description, image, date, archive, id_category) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO news (title, sazetak, description, image, date, archive, id_category) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        if ($stmt->execute([$title, $content, $uploadfile, date('Y-m-d'), $archive, $id_category])) {
+        if ($stmt->execute([$title, $summary, $content, $uploadfile, date('Y-m-d'), $archive, $id_category])) {
             echo "Novost je uspješno unesena.";
         } else {
             echo "Došlo je do greške prilikom unosa novosti.";

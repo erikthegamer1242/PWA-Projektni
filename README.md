@@ -1,1 +1,1 @@
-admin: idegas/1234
+admin: admin/admin

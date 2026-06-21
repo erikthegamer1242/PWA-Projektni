@@ -1,5 +1,4 @@
 <?php
-require_once('header.php');
 session_start();
 
 if (!isset($_SESSION['username']) && !isset($_SESSION['level'])) {
@@ -7,8 +6,10 @@ if (!isset($_SESSION['username']) && !isset($_SESSION['level'])) {
     exit();
 }
 
+require_once('header.php');
+
 if ($_SESSION['level'] <= 1) {
-    echo "Nemate pristup ovoj stranici!";
+    echo $_SESSION['fname'] . " " . $_SESSION['lname'] . " nemate pristup ovoj stranici!";
     exit();
 }
 
@@ -36,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     <input type="hidden" name="id" value="' . $news['id'] . '">
                     <label for="title">Naslov:</label><br>
                     <input type="text" name="title" id="title" placeholder="Naslov" value="' . $news['title'] . '" required><br>
+                    <label for="summary">Kratki sadržaj:</label><br>
+                    <textarea name="summary" id="summary" placeholder="Kratki sadržaj" required>' . $news['sazetak'] . '</textarea><br>
                     <label for="content">Sadržaj:</label><br>
                     <textarea name="content" id="content" placeholder="Sadržaj" required>' . $news['description'] . '</textarea><br>
                     <label for="img_file">Uploadaj novu sliku:</label><br>
@@ -75,6 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         <img src="' . $row['image'] . '" alt="' . $row['title'] . '"><br>
                         <div class="category ' . $row['category_name'] . '">' . $row['category_name'] . '</div>
                         <a href="administrator.php?id=' . $row['id'] . '&w=e">' . $row['title'] . '</a>
+                        <p class="summary">' . $row['sazetak'] . '</p>
                         <p>' . date('M d,Y', strtotime($row['date'])) . '</p>
                     </article>';
             }
@@ -89,6 +93,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         try {
             $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username_db, $password_db);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $sql = "SELECT image FROM news WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([$id]);
+            $img_file_name = $stmt->fetch(PDO::FETCH_ASSOC)["image"];
+            $stmt->closeCursor();
+            $stmt = null;
+
+            $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username_db, $password_db);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "DELETE FROM news WHERE id = ?";
             $stmt = $conn->prepare($sql);
             if ($stmt->execute([$id])) {
@@ -96,6 +109,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             } else {
                 echo "Došlo je do greške prilikom brisanja novosti.";
             }
+            if (file_exists($img_file_name)) {
+                unlink($img_file_name);
+            }
+
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         }
@@ -103,6 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (isset($_POST["submit"])) {
             $id = $_POST['id'];
             $title = $_POST['title'];
+            $summary = $_POST['summary'];
             $content = $_POST['content'];
             $id_category = $_POST['category'];
             $archive = isset($_POST['archive']) ? 1 : 0;
@@ -127,17 +145,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                         return;
                     }
 
-                    $sql = "UPDATE news SET title = ?, description = ?, image = ?, archive = ?, id_category = ? WHERE id = ?";
+                    $sql = "UPDATE news SET title = ?, sazetak = ?, description = ?, image = ?, archive = ?, id_category = ? WHERE id = ?";
                     $stmt = $conn->prepare($sql);
-                    if ($stmt->execute([$title, $content, $uploadfile, $archive, $id_category, $id])) {
+                    if ($stmt->execute([$title, $summary, $content, $uploadfile, $archive, $id_category, $id])) {
                         echo "Novost je uspješno ažurirana.";
                     } else {
                         echo "Došlo je do greške prilikom ažuriranja novosti.";
                     }
                 } else {
-                    $sql = "UPDATE news SET title = ?, description = ?, archive = ?, id_category = ? WHERE id = ?";
+                    $sql = "UPDATE news SET title = ?, sazetak = ?, description = ?, archive = ?, id_category = ? WHERE id = ?";
                     $stmt = $conn->prepare($sql);
-                    if ($stmt->execute([$title, $content, $archive, $id_category, $id])) {
+                    if ($stmt->execute([$title, $summary, $content, $archive, $id_category, $id])) {
                         echo "Novost je uspješno ažurirana.";
                     } else {
                         echo "Došlo je do greške prilikom ažuriranja novosti.";

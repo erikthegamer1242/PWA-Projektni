@@ -17,7 +17,8 @@
                 foreach ($result as $row) {
                     print '<article class="article">
                         <img src="' . $row['image'] . '" alt="' . $row['title'] . '"><br>
-                        <a href="kategorija.php?id=' . $row['id'] . '">' . $row['title'] . '</a>
+                        <a href="clanak.php?id=' . $row['id'] . '">' . $row['title'] . '</a>
+                        <p class="summary">' . $row['sazetak'] . '</p>
                         <p>' . date('M d,Y', strtotime($row['date'])) . '</p>
                     </article>';
                 }
@@ -42,7 +43,8 @@
                 foreach ($result as $row) {
                     print '<article class="article">
                         <img src="' . $row['image'] . '" alt="' . $row['title'] . '"><br>
-                        <a href="kategorija.php?id=' . $row['id'] . '">' . $row['title'] . '</a>
+                        <a href="clanak.php?id=' . $row['id'] . '">' . $row['title'] . '</a>
+                        <p class="summary">' . $row['sazetak'] . '</p>
                         <p>' . date('M d,Y', strtotime($row['date'])) . '</p>
                     </article>';
                 }

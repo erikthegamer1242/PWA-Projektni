@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_start();
             $_SESSION['username'] = $user['username'];
             $_SESSION['level'] = $user['razina'];
+            $_SESSION['fname'] = $user['ime'];
+            $_SESSION['lname'] = $user['prezime'];
             header('Location: administrator.php');
             exit();
         } else {
