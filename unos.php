@@ -14,9 +14,9 @@
                     <label for="title">Naslov:</label><br>
                     <input type="text" name="title" id="title" placeholder="Naslov" required><br>
                     <label for="summary">Kratki sadržaj:</label><br>
-                    <textarea name="summary" id="summary" placeholder="Kratki sadržaj" required></textarea><br>
+                    <textarea class="summ-arr" name="summary" id="summary" placeholder="Kratki sadržaj" required></textarea><br>
                     <label for="content">Sadržaj:</label><br>
-                    <textarea name="content" id="content" placeholder="Sadržaj" required></textarea><br>
+                    <textarea class="cont-arr" name="content" id="content" placeholder="Sadržaj" required></textarea><br>
                     <label for="img_file">Slika:</label><br>
                     <input type="file" name="img_file" id="img_file" placeholder="slike" required><br>
                     <label for="category">Kategorija:</label><br>

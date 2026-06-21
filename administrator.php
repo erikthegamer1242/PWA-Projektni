@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     <label for="title">Naslov:</label><br>
                     <input type="text" name="title" id="title" placeholder="Naslov" value="' . $news['title'] . '" required><br>
                     <label for="summary">Kratki sadržaj:</label><br>
-                    <textarea name="summary" id="summary" placeholder="Kratki sadržaj" required>' . $news['sazetak'] . '</textarea><br>
+                    <textarea class="summ-arr" name="summary" id="summary" placeholder="Kratki sadržaj" required>' . $news['sazetak'] . '</textarea><br>
                     <label for="content">Sadržaj:</label><br>
-                    <textarea name="content" id="content" placeholder="Sadržaj" required>' . $news['description'] . '</textarea><br>
+                    <textarea class="cont-arr" name="content" id="content" placeholder="Sadržaj" required>' . $news['description'] . '</textarea><br>
                     <label for="img_file">Uploadaj novu sliku:</label><br>
                     <input type="file" name="img_file" id="img_file" placeholder="slike"><br>
                     <label for="category">Kategorija:</label><br>

@@ -14,6 +14,7 @@ if (isset($_GET['id'])) {
                         <h2>' . $news['title'] . '</h2>
                         <div class="category ' . $news['category_name'] . '">' . $news['category_name'] . '</div>
                         <div class="date">' . date('M d,Y', strtotime($news['date'])) . '</div>
+                        <p class="summary in-news">' . $news['sazetak'] . '</p>
                         <p>' . nl2br($news['description']) . '</p>
                 </div>';
     } catch (PDOException $e) {

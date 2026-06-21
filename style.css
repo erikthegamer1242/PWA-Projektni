@@ -244,3 +244,36 @@ form .reset {
     font-size: 80%;
     margin-top: 5px;
 }
+
+.in-news {
+    font-size: 100%;
+}
+
+.summ-arr {
+    height: 100px;
+}
+
+.cont-arr {
+  height: 180px;
+}
+
+@media (max-width: 768px) {
+    form {
+        min-width: 320px;
+    }
+    .content {
+        gap: 7px;
+    }
+
+    .in-news {
+        font-size: 90%;
+    }
+
+    .content a {
+        font-size: 14px;
+    }
+
+    .content p {
+        font-size: 10px;
+    }
+}
