@@ -1,5 +1,6 @@
 <?php
 require_once("env.php");
+session_start();
 echo '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +19,11 @@ echo '<!DOCTYPE html>
             <a href="kategorija.php?category=Muzika">Muzika</a>
             <a href="kategorija.php?category=Sport">Sport</a>
             <a href="unos.php">Unos</a>
-            <a href="administrator.php">Administracija</a>
-        </nav>
+            <a href="administrator.php">Administracija</a>';
+            if (isset($_SESSION['username'])) {
+                echo '<a href="logout.php">Odjava</a>';
+            }
+echo    '</nav>
     </header>
     <main>';
 

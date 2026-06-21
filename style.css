@@ -7,6 +7,15 @@ body {
     flex-direction: column;
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 20px;
+    background-color: yellow;
+}
+
 .header a {
     color: black;
     text-decoration: none;
@@ -15,19 +24,32 @@ body {
     font-weight: bold;
 }
 
-.header .logo-link {
-    align-items: flex-start;
-    justify-self: flex-start;
-    align-self: flex-start;
+.logo-link {
+    flex: 0 0 auto;
 }
 
-.header {
-    padding: 50px 20px;
-    background-color: yellow;
+.header::after {
+    content: "";
+    flex: 0 0 200px;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    display: block;
+}
+
+nav {
+    flex: 1 1 auto;
+    min-width: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
+
 
 main {
     margin: 20px auto;
@@ -112,7 +134,8 @@ main {
 }
 
 form {
-    max-width: 400px;
+    min-width: 450px;
+    max-width: 800px;
     background-color: #f4f4f4;
     padding: 10px 20px 40px 20px;
     margin: 20px auto;
@@ -125,7 +148,9 @@ form label {
     margin-bottom: -10px;
 }
 
-form input[type="text"], form input[type="password"], form textarea {
+form input[type="text"],
+form input[type="password"],
+form textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
