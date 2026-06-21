@@ -3,7 +3,7 @@
     $port = "53306";
     $username_db = "root";
     $password_db = "1234";
-    $dbname = "projektni";
+    $dbname = "projektni_ebraun";
 
     $allowedTypes = [
         "image/jpeg" => "jpg",

@@ -16,6 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn = new PDO("mysql:host=$servername;port=$port;dbname=$dbname", $username_db, $password_db);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+        $sql = "SELECT id FROM korisnik WHERE username = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$username]);
+
+        if ($stmt->fetch()) {
+            echo "Korisničko ime već postoji!";
+            return;
+        }
+        $stmt->closeCursor();
+        $stmt = null;
+
         $sql = "INSERT INTO korisnik (ime, prezime, username, password, razina) VALUES (?, ?, ?, ?, 1)";
         $stmt = $conn->prepare($sql);
         if ($stmt->execute([$fname, $lname, $username, password_hash($password, PASSWORD_DEFAULT)])) {
