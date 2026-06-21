@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `projektni_ebraun`
 --
-CREATE DATABASE IF NOT EXISTS `projektni_ebraun` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `projektni_ebraun` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
 USE `projektni_ebraun`;
 
 -- --------------------------------------------------------
@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS `category`;
 CREATE TABLE `category` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `category`
@@ -57,7 +57,7 @@ CREATE TABLE `korisnik` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `razina` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `korisnik`
@@ -77,13 +77,13 @@ DROP TABLE IF EXISTS `news`;
 CREATE TABLE `news` (
   `id` int NOT NULL,
   `title` varchar(255) NOT NULL,
-  `sazetak` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `description` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `sazetak` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `description` varchar(5000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `image` varchar(355) NOT NULL,
   `date` date NOT NULL,
   `archive` tinyint(1) NOT NULL,
   `id_category` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Dumping data for table `news`

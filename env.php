@@ -1,8 +1,8 @@
 <?php
     $servername = "127.0.0.1";
-    $port = "53306";
+    $port = "3306";
     $username_db = "root";
-    $password_db = "1234";
+    $password_db = "";
     $dbname = "projektni_ebraun";
 
     $allowedTypes = [
